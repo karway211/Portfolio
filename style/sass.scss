@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+}
+
+body {
+    background-color: #174516;
+}
+
+.wrapper {
+    background-color: #246B22;
+    height: 100vp;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header {
+    // outline: 1px solid red;
+    width: 100%;
+    padding: 20px 20px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    &-name {
+        text-transform: uppercase;
+    }
+    &__navbar {
+        // outline: 1px solid red;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .navbar-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            padding: 5px 10px;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.iAm {
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &__myCont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 20%;
+        .myCont-name {
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+        .myCont-contacts {
+            font-size: 2em;
+            text-decoration: none;
+        }
+    }
+    &-myPhoto {
+        border-radius: 30px;
+    }
+}
+
+.edukation {
+    width: 100%;
+    padding: 30px 20px;
+    &__click{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .click-headline {
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+        
+    }
+    
+    &__elem {
+        // outline: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__item {
+        // outline: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+        padding: 20px 0;
+    }
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    &-carousel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.arrow {
+    height: 50px;
+    width: 50px;
+    background-color: #EDD821;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
