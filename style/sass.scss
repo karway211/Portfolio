@@ -1,3 +1,5 @@
+$carousel-width: 870px;
+$carousel-height: 0.76 * $carousel-width;
 * {
     padding: 0;
     margin: 0;
@@ -24,7 +26,6 @@ body {
 }
 
 .header {
-    // outline: 1px solid red;
     width: 100%;
     padding: 20px 20px;
     flex-wrap: wrap;
@@ -34,7 +35,6 @@ body {
         text-transform: uppercase;
     }
     &__navbar {
-        // outline: 1px solid red;
         width: 50%;
         display: flex;
         justify-content: space-between;
@@ -60,6 +60,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     &__myCont {
         display: flex;
         flex-direction: column;
@@ -69,6 +70,7 @@ body {
         .myCont-name {
             font-size: 2em;
             text-transform: uppercase;
+            text-align: center;
         }
         .myCont-contacts {
             font-size: 2em;
@@ -96,13 +98,11 @@ body {
     }
     
     &__elem {
-        // outline: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     &__item {
-        // outline: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -112,21 +112,58 @@ body {
 }
 
 .projects {
-    display: flex;
-    flex-direction: column;
+    outline: 1px solid red;
+    width: 100%;
     &-carousel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        margin: 0 auto;
+        width: $carousel-width;
+        height: $carousel-height;
+    }
+    &-wrapper {
+        overflow: hidden;
+        position: relative;
+        width: $carousel-width;
+        height: $carousel-height;
     }
 }
 
+.carousel {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: -870px;
+    width: 10000px;
+}
+.carousel.changing {
+    transition: left .2s ease-out;
+}
+
+.slide {
+    width: $carousel-width;
+    height: $carousel-height;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
 .arrow {
+    position: absolute;
     height: 50px;
     width: 50px;
+    top: 50%;
     background-color: #EDD821;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    cursor: pointer;
 }
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+

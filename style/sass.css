@@ -84,6 +84,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .iAm__myCont {
@@ -106,6 +108,7 @@ body {
 .iAm__myCont .myCont-name {
   font-size: 2em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .iAm__myCont .myCont-contacts {
@@ -169,16 +172,42 @@ body {
 }
 
 .projects {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  outline: 1px solid red;
+  width: 100%;
 }
 
 .projects-carousel {
+  margin: 0 auto;
+  width: 870px;
+  height: 661.2px;
+}
+
+.projects-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 870px;
+  height: 661.2px;
+}
+
+.carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: -870px;
+  width: 10000px;
+}
+
+.carousel.changing {
+  -webkit-transition: left .2s ease-out;
+  transition: left .2s ease-out;
+}
+
+.slide {
+  width: 870px;
+  height: 661.2px;
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -186,14 +215,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .arrow {
+  position: absolute;
   height: 50px;
   width: 50px;
+  top: 50%;
   background-color: #EDD821;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -205,5 +233,14 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
 }
 /*# sourceMappingURL=sass.css.map */
