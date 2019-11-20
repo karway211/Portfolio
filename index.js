@@ -1,14 +1,14 @@
 let slider = document.getElementById('slider'),
     carousel = document.getElementById('carousel'),
     leftArrow = document.getElementById('left-arrow'),
-    rightArrow = document.getElementById('right-arrow');
-
+    rightArrow = document.getElementById('right-arrow'),
+    wrap = document.getElementById('projects-wrapper');
 let slide = (items, leftArrow, rightArrow) => {
     let x1 = 0,
         x2 = 0,
-        start,
+        start = items.offsetLeft,
         finish,
-        moveMouse = 50,
+        moveMouse = 40,
         slides = items.getElementsByClassName('slide'),
         slidesLength = slides.length,
         slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
@@ -17,33 +17,30 @@ let slide = (items, leftArrow, rightArrow) => {
         cloneFirstSlide = firstSlide.cloneNode(true),
         cloneLastSlide = lastSlide.cloneNode(true),
         allowChange = true;
-        index = 0,
-  
+        index = 0;
     items.appendChild(cloneFirstSlide);
     items.insertBefore(cloneLastSlide, firstSlide);
+
+    window.addEventListener('resize', () => {
+        setTimeout(() => {
+            window.location.reload();
+        },400);
+    });
     
     let dragStart = (e) => {
-        e.preventDefault();
         start = items.offsetLeft;
         if (e.type == 'touchstart') {
             x1 = e.touches[0].clientX;
-        } else {
-            x1 = e.clientX;
-            document.onmouseup = dragFinish;
-            document.onmousemove = dragAction;
         }
     }
     
-    items.onmousedown = dragStart; 
     items.addEventListener('touchstart', dragStart);
+
     let dragAction = (e) => {
         if (e.type == 'touchmove') {
             x2 = x1 - e.touches[0].clientX;
             x1 = e.touches[0].clientX;
-        } else {
-            x2 = x1 - e.clientX;
-            x1 = e.clientX;
-        }
+        } 
         items.style.left = (items.offsetLeft - x2) + "px";
     }
 
@@ -57,15 +54,16 @@ let slide = (items, leftArrow, rightArrow) => {
             }
             if (dir == 1) {
                 items.style.left = (start - slideSize) + "px";
-                index++;      
+                index++;  
             } else if (dir == -1) {
                 items.style.left = (start + slideSize) + "px";
-                index--;      
+                index--;
             }
         }       
         allowChange = false;
+        // active();
     }
-
+    
     leftArrow.addEventListener('click', () => { changeSlides(-1) });
     rightArrow.addEventListener('click', () => { changeSlides(1) });
 
@@ -75,11 +73,8 @@ let slide = (items, leftArrow, rightArrow) => {
             changeSlides(1, 'drag');
         } else if (finish - start > moveMouse) {
             changeSlides(-1, 'drag');
-        } else {
-            items.style.left = (start) + "px";
         }
-        document.onmouseup = null;
-        document.onmousemove = null;
+        // active();
     }
   
     items.addEventListener('touchend', dragFinish);
@@ -96,11 +91,21 @@ let slide = (items, leftArrow, rightArrow) => {
         }      
         allowChange = true;
     }
-
-    items.addEventListener('transitionend', checkIndex);
+    items.addEventListener('transitionend', checkIndex);   
 }
 
 slide(carousel, leftArrow, rightArrow);
 
+const menuElem = document.getElementById('edukation');
+const titleElem = menuElem.querySelector('.edukation__click');
 
-  
+titleElem.onclick = () => {
+menuElem.classList.toggle('open');
+};
+
+
+
+
+
+
+
