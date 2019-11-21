@@ -109,6 +109,7 @@ body {
         max-height: 0;
         transition: .2s ease max-height;
         position: relative;
+        outline: 1px solid red;
     }
     .click-headline {
         font-size: 2em;
@@ -174,6 +175,8 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    outline: 1px solid red;
 }
 
 .arrow {

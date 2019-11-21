@@ -3,6 +3,11 @@ let slider = document.getElementById('slider'),
     leftArrow = document.getElementById('left-arrow'),
     rightArrow = document.getElementById('right-arrow'),
     wrap = document.getElementById('projects-wrapper');
+
+
+
+
+
 let slide = (items, leftArrow, rightArrow) => {
     let x1 = 0,
         x2 = 0,
@@ -18,13 +23,13 @@ let slide = (items, leftArrow, rightArrow) => {
         cloneLastSlide = lastSlide.cloneNode(true),
         allowChange = true;
         index = 0;
+        // active;
     items.appendChild(cloneFirstSlide);
     items.insertBefore(cloneLastSlide, firstSlide);
 
     window.addEventListener('resize', () => {
-        setTimeout(() => {
-            window.location.reload();
-        },400);
+        slideSize = items.getElementsByClassName('slide')[0].offsetWidth;
+        items.style.left = -slideSize + 'px';
     });
     
     let dragStart = (e) => {
@@ -54,14 +59,13 @@ let slide = (items, leftArrow, rightArrow) => {
             }
             if (dir == 1) {
                 items.style.left = (start - slideSize) + "px";
-                index++;  
+                index++;
             } else if (dir == -1) {
                 items.style.left = (start + slideSize) + "px";
                 index--;
             }
         }       
         allowChange = false;
-        // active();
     }
     
     leftArrow.addEventListener('click', () => { changeSlides(-1) });
@@ -74,7 +78,6 @@ let slide = (items, leftArrow, rightArrow) => {
         } else if (finish - start > moveMouse) {
             changeSlides(-1, 'drag');
         }
-        // active();
     }
   
     items.addEventListener('touchend', dragFinish);
@@ -102,6 +105,9 @@ const titleElem = menuElem.querySelector('.edukation__click');
 titleElem.onclick = () => {
 menuElem.classList.toggle('open');
 };
+
+
+
 
 
 
