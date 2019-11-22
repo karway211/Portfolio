@@ -61,7 +61,7 @@ let slide = (items, leftArrow, rightArrow) => {
         items.classList.add('changing');
         if (allowChange) {
             if (!action) {
-                start = items.offsetLeft; 
+                start = items.offsetLeft;
             }
             if (dir == 1) {
                 items.style.left = (start - slideSize) + "px";
@@ -70,7 +70,7 @@ let slide = (items, leftArrow, rightArrow) => {
                 items.style.left = (start + slideSize) + "px";
                 index--;
             }
-        }       
+        }
         allowChange = false;
     }
     
@@ -84,25 +84,25 @@ let slide = (items, leftArrow, rightArrow) => {
         } else if (finish - start > moveMouse) {
             changeSlides(-1, 'drag');
         }
-    }
+    };
   
     items.addEventListener('touchend', dragFinish);
     
     let checkIndex = () => {
         items.classList.remove('changing');
         if (index == -1) {
-        items.style.left = -(slidesLength * slideSize) + "px";
-        index = slidesLength - 1;
+            items.style.left = -(slidesLength * slideSize) + "px";
+            index = slidesLength - 1;
         }
         if (index == slidesLength) {
-        items.style.left = -(1 * slideSize) + "px";
-        index = 0;
-        }      
+            items.style.left = -(1 * slideSize) + "px";
+            index = 0;
+        }
         allowChange = true;
-    }
+    };
+
     items.addEventListener('transitionend', checkIndex);
     buttonShow.onclick = (e) => {
-        console.log(e);
         if (e.target.value === 'show discription') {
             e.target.value = 'out discription';
             discription.forEach((elem) => {
@@ -114,7 +114,7 @@ let slide = (items, leftArrow, rightArrow) => {
                 elem.style.display = 'none';
             });
         }
-    } 
+    }
 }
 
 slide(carousel, leftArrow, rightArrow);
