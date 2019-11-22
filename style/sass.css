@@ -165,7 +165,6 @@ body {
   -webkit-transition: .2s ease max-height;
   transition: .2s ease max-height;
   position: relative;
-  outline: 1px solid red;
 }
 
 .edukation .click-headline {
@@ -277,7 +276,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  outline: 1px solid red;
 }
 
 .slide-elem__discription .discription-item {

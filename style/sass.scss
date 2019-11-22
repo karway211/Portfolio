@@ -109,7 +109,6 @@ body {
         max-height: 0;
         transition: .2s ease max-height;
         position: relative;
-        outline: 1px solid red;
     }
     .click-headline {
         font-size: 2em;
@@ -187,7 +186,6 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        outline: 1px solid red;
         
         .discription-item {
             font-size: 16px;
