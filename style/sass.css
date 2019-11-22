@@ -218,14 +218,12 @@ body {
 
 .projects-carousel {
   width: 870px;
-  height: 661.2px;
 }
 
 .projects-wrapper {
   overflow: hidden;
   position: relative;
   width: 870px;
-  height: 661.2px;
 }
 
 .projects-headline {
@@ -249,8 +247,8 @@ body {
 }
 
 .slide {
+  position: relative;
   width: 870px;
-  height: 661.2px;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,7 +258,31 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+}
+
+.slide-elem {
+  display: block;
+}
+
+.slide-elem-h3 {
+  text-align: center;
+}
+
+.slide-elem__discription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   outline: 1px solid red;
+}
+
+.slide-elem__discription .discription-item {
+  font-size: 16px;
+  padding: 10px;
 }
 
 .arrow {
@@ -290,6 +312,17 @@ body {
   right: 0;
 }
 
+.button {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  border-radius: 20%;
+  padding: 2%;
+}
+
 @media (max-width: 1222px) {
   body {
     font-size: 12px;
@@ -302,6 +335,8 @@ body {
   .projects-wrapper,
   .slide {
     width: 600px;
+  }
+  .slide-img {
     height: 456px;
   }
   .carousel {
@@ -324,6 +359,8 @@ body {
   .projects-wrapper,
   .slide {
     width: 450px;
+  }
+  .slide-img {
     height: 342px;
   }
   .carousel {
@@ -337,6 +374,8 @@ body {
   .projects-wrapper,
   .slide {
     width: 375px;
+  }
+  .slide-img {
     height: 285px;
   }
   .carousel {
@@ -348,6 +387,12 @@ body {
   .arrow {
     display: none;
   }
+  .button {
+    display: block;
+  }
+  .slide-elem {
+    display: none;
+  }
 }
 
 @media (max-width: 375px) {
@@ -356,6 +401,8 @@ body {
   .projects-wrapper,
   .slide {
     width: 360px;
+  }
+  .slide-img {
     height: 273.6px;
   }
   .carousel {
@@ -375,6 +422,8 @@ body {
   .projects-wrapper,
   .slide {
     width: 280px;
+  }
+  .slide-img {
     height: 212.8px;
   }
   .carousel {

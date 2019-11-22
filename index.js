@@ -4,10 +4,6 @@ let slider = document.getElementById('slider'),
     rightArrow = document.getElementById('right-arrow'),
     wrap = document.getElementById('projects-wrapper');
 
-
-
-
-
 let slide = (items, leftArrow, rightArrow) => {
     let x1 = 0,
         x2 = 0,
@@ -23,13 +19,23 @@ let slide = (items, leftArrow, rightArrow) => {
         cloneLastSlide = lastSlide.cloneNode(true),
         allowChange = true;
         index = 0;
-        // active;
-    items.appendChild(cloneFirstSlide);
-    items.insertBefore(cloneLastSlide, firstSlide);
+        items.appendChild(cloneFirstSlide);
+        items.insertBefore(cloneLastSlide, firstSlide);
+        const discription = document.querySelectorAll('.slide-elem');
+        const buttonShow = document.getElementById('buttonShow');
 
     window.addEventListener('resize', () => {
         slideSize = items.getElementsByClassName('slide')[0].offsetWidth;
         items.style.left = -slideSize + 'px';
+        if(window.innerWidth <= 600) {
+            discription.forEach((elem) => {
+                elem.style.display = 'none';
+            });
+        } else {
+            discription.forEach((elem) => {
+                elem.style.display = 'block';
+            });
+        }
     });
     
     let dragStart = (e) => {
@@ -94,7 +100,21 @@ let slide = (items, leftArrow, rightArrow) => {
         }      
         allowChange = true;
     }
-    items.addEventListener('transitionend', checkIndex);   
+    items.addEventListener('transitionend', checkIndex);
+    buttonShow.onclick = (e) => {
+        console.log(e);
+        if (e.target.value === 'show discription') {
+            e.target.value = 'out discription';
+            discription.forEach((elem) => {
+                elem.style.display = 'block';
+            });
+        } else {
+            e.target.value = 'show discription';
+            discription.forEach((elem) => {
+                elem.style.display = 'none';
+            });
+        }
+    } 
 }
 
 slide(carousel, leftArrow, rightArrow);
