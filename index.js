@@ -1,10 +1,10 @@
-let slider = document.getElementById('slider'),
+const slider = document.getElementById('slider'),
     carousel = document.getElementById('carousel'),
     leftArrow = document.getElementById('left-arrow'),
     rightArrow = document.getElementById('right-arrow'),
     wrap = document.getElementById('projects-wrapper');
 
-let slide = (items, leftArrow, rightArrow) => {
+const slide = (items, leftArrow, rightArrow) => {
     let x1 = 0,
         x2 = 0,
         start = items.offsetLeft,
@@ -17,7 +17,7 @@ let slide = (items, leftArrow, rightArrow) => {
         lastSlide = slides[slidesLength - 1],
         cloneFirstSlide = firstSlide.cloneNode(true),
         cloneLastSlide = lastSlide.cloneNode(true),
-        allowChange = true;
+        allowChange = true,
         index = 0;
         items.appendChild(cloneFirstSlide);
         items.insertBefore(cloneLastSlide, firstSlide);
@@ -38,7 +38,7 @@ let slide = (items, leftArrow, rightArrow) => {
         }
     });
     
-    let dragStart = (e) => {
+    const dragStart = (e) => {
         start = items.offsetLeft;
         if (e.type == 'touchstart') {
             x1 = e.touches[0].clientX;
@@ -47,7 +47,7 @@ let slide = (items, leftArrow, rightArrow) => {
     
     items.addEventListener('touchstart', dragStart);
 
-    let dragAction = (e) => {
+    const dragAction = (e) => {
         if (e.type == 'touchmove') {
             x2 = x1 - e.touches[0].clientX;
             x1 = e.touches[0].clientX;
@@ -57,7 +57,7 @@ let slide = (items, leftArrow, rightArrow) => {
 
     items.addEventListener('touchmove', dragAction);
     
-    let changeSlides = (dir, action) => {
+    const changeSlides = (dir, action) => {
         items.classList.add('changing');
         if (allowChange) {
             if (!action) {
@@ -77,7 +77,7 @@ let slide = (items, leftArrow, rightArrow) => {
     leftArrow.addEventListener('click', () => { changeSlides(-1) });
     rightArrow.addEventListener('click', () => { changeSlides(1) });
 
-    let dragFinish = () => {
+    const dragFinish = () => {
         finish = items.offsetLeft;
         if (finish - start < -moveMouse) {
             changeSlides(1, 'drag');
@@ -88,7 +88,7 @@ let slide = (items, leftArrow, rightArrow) => {
   
     items.addEventListener('touchend', dragFinish);
     
-    let checkIndex = () => {
+    const checkIndex = () => {
         items.classList.remove('changing');
         if (index == -1) {
             items.style.left = -(slidesLength * slideSize) + "px";
