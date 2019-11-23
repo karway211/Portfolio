@@ -203,7 +203,6 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  outline: 3px solid blue;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -223,15 +222,14 @@ body {
   position: relative;
   width: 100%;
   text-align: center;
-  outline: 1px solid yellow;
 }
 
 .items-container {
   position: relative;
   overflow: hidden;
-  outline: 1px solid #9c3279;
   bottom: 0;
   top: 0;
+  height: 100%;
 }
 
 .item {
@@ -240,8 +238,6 @@ body {
   -webkit-animation: 0.5s ease-in-out;
           animation: 0.5s ease-in-out;
   margin: 0 auto;
-  height: 100%;
-  outline: 1px solid goldenrod;
 }
 
 .active,
@@ -256,9 +252,8 @@ body {
 }
 
 .description {
-  margin: 30px 20%;
-  font-size: 32px;
-  border: 2px solid black;
+  margin: 0 5%;
+  font-size: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -269,23 +264,44 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  outline: 1px solid #cbdbcb;
+}
+
+.description-item {
+  display: block;
+  padding: 20px;
 }
 
 .description img {
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .project-name {
   padding: 10px;
 }
 
+.project-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.project-item {
+  display: block;
+  padding: 5px 10px;
+}
+
 .control {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 15%;
+  width: 5%;
   cursor: pointer;
 }
 
@@ -300,16 +316,31 @@ body {
 }
 
 .arrow {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  background-color: #ffffff;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  font-size: 84px;
 }
 
 .arrow.right {
-  right: 50%;
+  right: 0;
+}
+
+.arrow.left {
+  left: 0;
 }
 
 .to-left {
@@ -339,7 +370,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   outline: none;
   position: absolute;
-  bottom: 40px;
+  bottom: 5%;
   right: 50%;
   border-radius: 20%;
   padding: 1%;
@@ -387,7 +418,7 @@ body {
   body {
     font-size: 12px;
   }
-  .control > .arrow {
+  .control {
     display: none;
   }
   .project-name {

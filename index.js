@@ -8,7 +8,6 @@ titleElem.onclick = () => {
 
 const buttonShow = document.getElementById('buttonShow');
 buttonShow.addEventListener('click', (e) => {
-    console.log(e);
     if (e.target.value === 'show discription') {
         e.target.value = 'out discription';
         discriptionName.forEach((elem) => {
@@ -20,7 +19,20 @@ buttonShow.addEventListener('click', (e) => {
             elem.style.display = 'none';
         });
     }
+    e.preventDefault();
 })
+
+window.addEventListener('resize', () => {
+    if(window.innerWidth <= 640) {
+        discriptionName.forEach((elem) => {
+            elem.style.display = 'none';
+        });
+    } else {
+        discriptionName.forEach((elem) => {
+            elem.style.display = 'block';
+        });
+    }
+});
 
 let items = document.querySelectorAll('.carousel .item');
 let el = document.querySelector('.carousel');
@@ -47,7 +59,7 @@ function showItem(direction) {
 		isEnabled = true;
 	});
 }
-this
+
 function nextItem(n) {
 	hideItem('to-left');
 	changeCurrentItem(n + 1);
@@ -125,11 +137,11 @@ const swipedetect = (el) => {
 				}
 			}
 		}
-			var touchobj = e.changedTouches[0];
+			let touchobj = e.changedTouches[0];
 			startX = touchobj.pageX;
 			startY = touchobj.pageY;
 			startTime = new Date().getTime();
-			e.preventDefault();
+			// e.preventDefault();
 	}, false);
 
 	surface.addEventListener('touchmove', function(e){
@@ -137,7 +149,7 @@ const swipedetect = (el) => {
 	}, false);
 
 	surface.addEventListener('touchend', function(e){
-			var touchobj = e.changedTouches[0];
+			let touchobj = e.changedTouches[0];
 			distX = touchobj.pageX - startX;
 			distY = touchobj.pageY - startY;
 			elapsedTime = new Date().getTime() - startTime;
@@ -154,11 +166,13 @@ const swipedetect = (el) => {
 							}
 					}
 			}
-			e.preventDefault();
+			// e.preventDefault();
 	}, false);
 }
 
 swipedetect(el);
+
+
 
 
 
