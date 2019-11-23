@@ -22,17 +22,17 @@ buttonShow.addEventListener('click', (e) => {
     e.preventDefault();
 })
 
-window.addEventListener('resize', () => {
-    if(window.innerWidth <= 640) {
-        discriptionName.forEach((elem) => {
-            elem.style.display = 'none';
-        });
-    } else {
-        discriptionName.forEach((elem) => {
-            elem.style.display = 'block';
-        });
-    }
-});
+// window.addEventListener('resize', () => {
+//     if(window.innerWidth <= 640) {
+//         discriptionName.forEach((elem) => {
+//             elem.style.display = 'none';
+//         });
+//     } else {
+//         discriptionName.forEach((elem) => {
+//             elem.style.display = 'block';
+//         });
+//     }
+// });
 
 let items = document.querySelectorAll('.carousel .item');
 let el = document.querySelector('.carousel');
