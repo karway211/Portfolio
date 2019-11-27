@@ -22,7 +22,6 @@ body {
   background-color: #246B22;
   width: 90%;
   margin: 0 auto;
-  outline: 1px solid red;
 }
 
 .header {
@@ -180,6 +179,18 @@ body {
           align-items: center;
   font-size: 2em;
   padding: 20px 0;
+  border-bottom: 1px solid #ffffff;
+  list-style-type: none;
+}
+
+.edukation__item span {
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.edukation__item span:nth-child(1) {
+  color: #FBFF19;
 }
 
 .click-headline::before {
@@ -193,7 +204,7 @@ body {
 }
 
 .edukation.open .edukation__elem {
-  max-height: 500px;
+  max-height: 750px;
 }
 
 .projects {
@@ -219,6 +230,7 @@ body {
 }
 
 .carousel {
+  border: 1px solid #ffffff;
   position: relative;
   width: 100%;
   text-align: center;
@@ -230,6 +242,7 @@ body {
   bottom: 0;
   top: 0;
   height: 100%;
+  width: 100%;
 }
 
 .item {
@@ -238,6 +251,7 @@ body {
   -webkit-animation: 0.5s ease-in-out;
           animation: 0.5s ease-in-out;
   margin: 0 auto;
+  width: 100%;
 }
 
 .active,
@@ -295,6 +309,7 @@ body {
 .project-item {
   display: block;
   padding: 5px 10px;
+  font-style: italic;
 }
 
 .control {
@@ -426,6 +441,8 @@ body {
   }
   .description {
     border: 0;
+    width: 100%;
+    margin: 0;
   }
   .button {
     display: block;
