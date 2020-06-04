@@ -1,5 +1,5 @@
-const menuElem = document.getElementById('edukation');
-const titleElem = menuElem.querySelector('.edukation__click');
+const menuElem = document.getElementById('education');
+const titleElem = menuElem.querySelector('.education__click');
 const discriptionName = document.querySelectorAll('.project-name');
 
 titleElem.onclick = () => {
@@ -8,15 +8,15 @@ titleElem.onclick = () => {
 
 const buttonShow = document.getElementById('buttonShow');
 buttonShow.addEventListener('click', (e) => {
-    if (e.target.value === 'show discription') {
-        e.target.value = 'out discription';
+    if (e.target.value === 'show description') {
+        e.target.value = 'out description';
         discriptionName.forEach((elem) => {
-            elem.style.display = 'block';
+						elem.style.display = 'block';
         });
     } else {
-        e.target.value = 'show discription';
+        e.target.value = 'show description';
         discriptionName.forEach((elem) => {
-            elem.style.display = 'none';
+						elem.style.display = 'none';
         });
     }
     e.preventDefault();
@@ -155,7 +155,6 @@ const swipedetect = (el) => {
 							}
 					}
 			}
-			// e.preventDefault();
 	}, false);
 }
 
