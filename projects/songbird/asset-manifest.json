@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/songbird/static/css/main.af72c080.chunk.css",
+    "main.js": "/songbird/static/js/main.e7f9497f.chunk.js",
+    "main.js.map": "/songbird/static/js/main.e7f9497f.chunk.js.map",
+    "runtime-main.js": "/songbird/static/js/runtime-main.d7308ec5.js",
+    "runtime-main.js.map": "/songbird/static/js/runtime-main.d7308ec5.js.map",
+    "static/js/2.b6959274.chunk.js": "/songbird/static/js/2.b6959274.chunk.js",
+    "static/js/2.b6959274.chunk.js.map": "/songbird/static/js/2.b6959274.chunk.js.map",
+    "index.html": "/songbird/index.html",
+    "precache-manifest.87b53a0be143dc4e0d934f8afb10d387.js": "/songbird/precache-manifest.87b53a0be143dc4e0d934f8afb10d387.js",
+    "service-worker.js": "/songbird/service-worker.js",
+    "static/css/main.af72c080.chunk.css.map": "/songbird/static/css/main.af72c080.chunk.css.map",
+    "static/js/2.b6959274.chunk.js.LICENSE.txt": "/songbird/static/js/2.b6959274.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7308ec5.js",
+    "static/js/2.b6959274.chunk.js",
+    "static/css/main.af72c080.chunk.css",
+    "static/js/main.e7f9497f.chunk.js"
+  ]
+}
