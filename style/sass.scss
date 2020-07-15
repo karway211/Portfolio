@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     color: #fff;
+    text-decoration: none;
 }
 
 html,
@@ -13,11 +14,12 @@ body {
 }
 
 body {
-    background-color: #174516;
+    background-color: #0b034e;
 }
 
 .wrapper {
-    background-color: #246B22;
+    // background-color: #246B22;
+    background: linear-gradient(45deg, #0b48ee, #08032e);
     width: 90%;
     margin: 0 auto;
 }
@@ -57,6 +59,7 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
     &__myCont {
         display: flex;
         flex-direction: column;
@@ -67,20 +70,114 @@ body {
         .myCont-contacts {
             font-size: 2em;
             text-decoration: none;
+            &:hover {
+                color: #00ffe7;
+                text-shadow: 0 0 15px #00a1ff,
+                             0 0 30px #00a1ff;
+            }
         }
     }
-    &-myPhoto {
-        border-radius: 30px;;
+    &-card {
+        border-radius: 30px;
         width: 250px;
-        // height: 312px;
         height: 280px;
-        overflow: hidden;
+        cursor: pointer;
+        position: relative;
         margin-bottom: 20px;
+
+        &:hover {
+            .iAm-myPhoto {
+                transform: perspective(600px) rotateY(-180deg);
+            }
+            .back {
+                transform: perspective(600px) rotateY(0);
+            }
+        }
     }
+
+    &-myPhoto, .back {
+        border-radius: 30px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transition: transform .5s ease;
+    }
+
+    &-myPhoto {
+        transform: perspective(600px) rotateY(0);
+    }
+    .back {
+        transform: perspective(600px) rotateY(180deg);
+        display: flex;
+        background-color: #08032e;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h4 {
+            font-size: 24px;
+            text-align: center;
+            span {
+                display: block;
+                font-size: 18px;
+                font-weight: 300;
+                opacity: .7;
+                margin: 5px 0 10px;
+            }
+        }
+
+        &-socials {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            a {
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                font-size: 22px;
+                border-radius: 50%;
+                transition: .4s ease;
+                &:hover {
+                    background-color: #fff;
+                    .fa {
+                        color: #08032e;
+                    }
+                }
+            }
+        }
+    }
+
     &-name {
         display: flex;
         align-items: center;
         margin-bottom: 20px;
+        text-align: center;
+        // text-transform: uppercase;
+        // background-color: #091a6e;
+        // border-radius: 20px;
+        // &::after, &::before {
+        //     content: 'Andrey Karchevsky';
+        //     text-transform: uppercase;
+        //     position: absolute;
+        //     background: linear-gradient(45deg, #09207e, #091867);
+        //     top: 0;
+        //     overflow: hidden;
+        // }
+        // &::after {
+        //     left: 2px;
+        //     text-shadow: -1px 0 #ff1b1b;
+        //     animation: glitch1 2s infinite ease;
+        // }
+        // &::before {
+        //     left: -2px;
+        //     text-shadow: 1px 0 #2124ff;
+        //     animation: glitch2 10s infinite ease;
+        // }
     }
 }
 
@@ -94,6 +191,13 @@ body {
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        &:hover {
+            .click-headline, .click-headline::before {
+                color: #00ffe7;
+                text-shadow: 0 0 15px #00a1ff,
+                             0 0 30px #00a1ff;
+            }
+        }
     }
     &__elem {
         display: flex;
@@ -229,7 +333,13 @@ body {
     top: 0;
     bottom: 0;
     width: 5%;
-    cursor: pointer; 
+    cursor: pointer;
+
+    &:hover {
+        .arrow {
+            background-color: #00ffe7;
+        }
+    }
 }
 
 .control.left {
@@ -246,8 +356,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 100%;
     border-radius: 30%;
     background-color: #ffffff;
     position: absolute;
@@ -257,9 +367,13 @@ body {
 
 .arrow.right {
     right: 0;
+    -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
 }
 .arrow.left {
     left: 0;
+    -webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
 
 .to-left {
@@ -309,6 +423,27 @@ body {
         left: 0;
     }
 }
+
+// @keyframes glitch1 {
+//     $steps: 25;
+//     @for $i from 0 through $steps {
+//         #{percentage($i*(1/$steps))} {
+//             $top: random(100);
+//             $bottom: random(101 - $top);
+//             clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+//         }
+//     }
+// }
+// @keyframes glitch2 {
+//     $steps: 25;
+//     @for $i from 0 through $steps {
+//         #{percentage($i*(1/$steps))} {
+//             $top: random(100);
+//             $bottom: random(101 - $top);
+//             clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+//         }
+//     }
+// }
 
 
 @media (max-width: 640px) {
